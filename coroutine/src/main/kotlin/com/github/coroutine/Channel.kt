@@ -12,11 +12,11 @@ import kotlinx.coroutines.runBlocking
  * @since 08-30-19:48
  * @version 1.0
  */
-fun main() {
+suspend fun main() {
     val channel = Channel<Int>()
-    runBlocking {
+    coroutineScope {
         launch {
-            for (x in 0..9) {
+            for (x in 0..5) {
                 channel.send(x * x)
             }
         }
